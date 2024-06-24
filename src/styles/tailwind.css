@@ -1,0 +1,177 @@
+/* src/styles/tailwind.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for the hero section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: url('../../public/hero/heroBG.png') no-repeat center top;
+  background-size: cover;
+  z-index: 1;
+}
+
+.hero-content {
+  margin-top: 200px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2em;
+  border-radius: 10px;
+  color: white;
+  animation: fadeIn 2s ease forwards;
+}
+
+.hero-content h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+  animation: slideInFromLeft 1s ease forwards;
+}
+
+.hero-content p {
+  font-size: 1.5em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes glowRed {
+  0% { text-shadow: 0 0 5px rgba(255, 0, 0, 0.5); }
+  50% { text-shadow: 0 0 20px rgba(255, 0, 0, 1); }
+  100% { text-shadow: 0 0 5px rgba(255, 0, 0, 0); }
+}
+
+@keyframes glowGold {
+  0% { text-shadow: 0 0 5px rgba(218, 165, 32, 0.5); }
+  50% { text-shadow: 0 0 20px rgba(218, 165, 32, 1); }
+  100% { text-shadow: 0 0 5px rgba(218, 165, 32, 0); }
+}
+
+@keyframes glowGreen {
+  0% { text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); }
+  50% { text-shadow: 0 0 20px rgba(0, 255, 0, 1); }
+  100% { text-shadow: 0 0 5px rgba(0, 255, 0, 0); }
+}
+
+@keyframes glowBlue {
+  0% { text-shadow: 0 0 5px rgba(0, 0, 255, 0.5); }
+  50% { text-shadow: 0 0 20px rgba(0, 0, 255, 1); }
+  100% { text-shadow: 0 0 5px rgba(0, 0, 255, 0); }
+}
+
+@keyframes combineText {
+  from { flex-wrap: wrap; }
+  to { flex-wrap: nowrap; }
+}
+
+.hero-content .text-part {
+  display: block;
+  opacity: 0;
+}
+
+.hero-content .text-part:nth-child(1) {
+  animation: glowRed 1s ease forwards 0.5s, fadeIn 1s ease forwards 0.5s;
+}
+
+.hero-content .text-part:nth-child(2) {
+  animation: glowGold 1s ease forwards 2s, fadeIn 1s ease forwards 2s;
+}
+
+.hero-content .text-part:nth-child(3) {
+  animation: glowGreen 1s ease forwards 3.5s, fadeIn 1s ease forwards 3.5s;
+}
+
+.hero-content .text-part:nth-child(4) {
+  animation: glowBlue 1s ease forwards 5s, fadeIn 1s ease forwards 5s;
+}
+
+.hero-content p {
+  animation: combineText 2s ease forwards 7s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* src/components/ScrollingQuotes.css */
+
+.scrolling-quotes {
+    width: 100%;
+    overflow: hidden;
+    background-color: black;
+    padding: 10px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  
+  .quote-container {
+    display: inline-flex;
+    animation: scroll 80s linear infinite;
+    white-space: nowrap;
+  }
+  
+  .quote {
+    display: inline-block;
+    padding: 0 20px;
+    font-size: 1.2em;
+    color: whitesmoke;
+    text-shadow:
+      -0.5px -0.5px 0 #ddd,
+      -1px -1px 0 #ccc,
+      0.5px 0.5px 0 #333,
+      1px 1px 0 #222;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .scrolling-quotes:hover .quote-container {
+    animation-play-state: paused;
+  }
+  
+  .header-text {
+    font-family: 'Caryer', sans-serif;
+    font-size: 3em;
+    color: white;
+    text-shadow: 0 0 5px rgba(218, 165, 32, 0.804);
+    animation: glow 3s ease-in-out forwards;
+  }
+  
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 5px rgba(218, 165, 32, 0.5);
+    }
+    50% {
+      text-shadow: 0 0 30px rgba(218, 165, 32, 0.8);
+    }
+    100% {
+      text-shadow: 0 0 10px rgba(218, 165, 32, 0.6);
+    }
+  }
+  
