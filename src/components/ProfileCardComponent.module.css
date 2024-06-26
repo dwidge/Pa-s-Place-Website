@@ -1,0 +1,44 @@
+.container {
+  background-color: black;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.image {
+  width: 100%;
+  height: auto; /* Ensure the height adjusts based on the aspect ratio */
+  object-fit: contain; /* Ensure the image fits within the container without being cropped */
+}
+
+.title {
+  font-size: 1.5em;
+  margin: 10px 0;
+}
+
+.body {
+  font-size: 1em;
+  color: #333;
+  padding: 0 20px 20px 20px; /* Add padding to the body text */
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.container:hover .card:not(:hover) {
+  transform: scale(0.9);
+  opacity: 0.6;
+}

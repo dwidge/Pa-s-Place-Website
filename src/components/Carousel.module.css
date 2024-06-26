@@ -1,4 +1,3 @@
-/* components/Carousel.module.css */
 .carousel {
   position: relative;
   width: 100%;
@@ -46,4 +45,16 @@
 
 .imageContainer.active {
   opacity: 1;
+}
+
+.keyPoints {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
 }
