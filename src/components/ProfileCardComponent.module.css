@@ -2,9 +2,25 @@
   background-color: black;
   padding: 20px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures the container takes the full viewport height */
+}
+
+.board {
+  background-image: url('/profileCards/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 40px; /* Adjust padding as needed */
+  display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+  border-radius: 15px; /* Optional: to give the board rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: to add a shadow around the board */
+  max-width: 90%; /* Ensure the board does not exceed a certain width */
+  max-height: 90%; /* Ensure the board does not exceed a certain height */
+  overflow: hidden; /* Hide any overflow */
 }
 
 .card {
@@ -15,6 +31,7 @@
   width: 300px;
   text-align: center;
   transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center center; /* Ensures the card scales from its center */
 }
 
 .image {
@@ -38,7 +55,7 @@
   transform: scale(1.1);
 }
 
-.container:hover .card:not(:hover) {
+.board:hover .card:not(:hover) {
   transform: scale(0.9);
   opacity: 0.6;
 }

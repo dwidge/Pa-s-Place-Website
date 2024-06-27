@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './Carousel.module.css';
 
-const Carousel = ({ images, keyPoints }) => {
+const Carousel = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
@@ -40,22 +40,21 @@ const Carousel = ({ images, keyPoints }) => {
   }
 
   return (
-    <div className={styles.carousel}>
-      <button onClick={handlePrevClick} className={styles.arrowButton}>‹</button>
-      <div className={styles.carouselImages}>
-        {images.map((src, index) => (
-          <div key={index} className={`${styles.imageContainer} ${index === currentIndex ? styles.active : ''}`}>
-            <Image src={src} alt={`Image ${index + 1}`} layout="fill" objectFit="contain" />
-          </div>
-        ))}
+    <div className={styles.carouselFrame}>
+      <div className={styles.overlay}></div>
+      <div className={styles.carousel}>
+        <button onClick={handlePrevClick} className={styles.arrowButton}>‹</button>
+        <div className={styles.carouselImages}>
+          {images.map((src, index) => (
+            <div key={index} className={`${styles.imageContainer} ${index === currentIndex ? styles.active : ''}`}>
+              <Image src={src} alt={`Image ${index + 1}`} layout="fill" objectFit="contain" />
+            </div>
+          ))}
+        </div>
+        <button onClick={handleNextClick} className={styles.arrowButton}>›</button>
       </div>
-      <div className={styles.keyPoints}>
-        {keyPoints}
-      </div>
-      <button onClick={handleNextClick} className={styles.arrowButton}>›</button>
     </div>
   );
 };
 
 export default Carousel;
-``
