@@ -1,0 +1,65 @@
+.testimonials {
+    background-image: url('/testimonials/1.jpg');
+    position: relative;
+  }
+  
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .testimonialsWrapper {
+    overflow: hidden;
+  }
+  
+  .testimonialsContainer {
+    display: flex;
+    animation: scroll 60s linear infinite;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .card {
+    flex: 0 0 400px; /* Adjust width as needed */
+    margin: 0 1rem;
+  }
+  
+  /* Add this to pause animation on hover */
+  .testimonialsContainer:hover {
+    animation-play-state: paused;
+  }
+  
+  .card {
+    width: 400px; /* Adjust the width as needed */
+    flex: none;
+    display: inline-block;
+    margin: 0 1rem; /* Adjust the margin as needed */
+    white-space: normal; /* Ensure text wraps inside the card */
+    word-wrap: break-word; /* Break long words to prevent overflow */
+  }
+  
+  .highlight {
+    color: red; /* Change to the desired color */
+    font-weight: bold; /* Change to desired styling */
+  }
+  
+  .header {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  

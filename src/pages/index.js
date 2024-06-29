@@ -1,3 +1,4 @@
+// pages/index.js
 import React from 'react';
 import fs from 'fs';
 import path from 'path';
@@ -7,6 +8,7 @@ import ScrollingQuotes from '../components/ScrollingQuotes';
 import Carousel from '../components/Carousel';
 import ProfileCardComponent from '../components/ProfileCardComponent';
 import Footer from '../components/Footer';
+import Testimonials from '../components/Testimonials';
 
 function HomePage({ carouselImages, profileImages }) {
   const profiles = [
@@ -14,16 +16,19 @@ function HomePage({ carouselImages, profileImages }) {
       title: 'Donate',
       body: 'Join us in creating a haven of hope and growth at Pa’s Place. Your generosity allows us to provide safe accommodations, enriching activities, and educational opportunities to young guests in need. Together, we can make a lasting difference in their lives.',
       image: profileImages[0],
+      link: '/donate',
     },
     {
       title: 'Volunteer',
       body: 'Make a difference in young lives by volunteering at Pa’s Place. Join us in fostering a nurturing environment where every contribution counts towards creating memorable experiences and inspiring personal growth.',
       image: profileImages[1],
+      link: '/volunteer',
     },
     {
       title: 'Reach Out',
       body: 'Are you or someone you know in need of a safe haven for personal growth and community support? Pa’s Place offers a sanctuary for young guests, providing enriching activities, educational programs, and a nurturing environment. Reach out to us today and let’s embark on a journey of growth and joy together.',
       image: profileImages[2],
+      link: '/reach-out',
     },
   ];
 
@@ -49,6 +54,7 @@ function HomePage({ carouselImages, profileImages }) {
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent z-10"></div>
         <Carousel images={carouselImages} keyPoints={keyPoints} />
       </div>
+      <Testimonials />
       <Footer />
     </div>
   );

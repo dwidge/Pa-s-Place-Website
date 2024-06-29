@@ -4,23 +4,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ensures the container takes the full viewport height */
+  min-height: 100vh;
 }
 
 .board {
   background-image: url('/profileCards/bg.jpg');
   background-size: cover;
   background-position: center;
-  padding: 40px; /* Adjust padding as needed */
+  padding: 40px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  border-radius: 15px; /* Optional: to give the board rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: to add a shadow around the board */
-  max-width: 90%; /* Ensure the board does not exceed a certain width */
-  max-height: 90%; /* Ensure the board does not exceed a certain height */
-  overflow: hidden; /* Hide any overflow */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 90%;
+  max-height: 90%;
+  overflow: hidden;
 }
 
 .card {
@@ -31,13 +31,16 @@
   width: 300px;
   text-align: center;
   transition: transform 0.3s ease, opacity 0.3s ease;
-  transform-origin: center center; /* Ensures the card scales from its center */
+  transform-origin: center center;
+  display: flex;
+  flex-direction: column; /* Ensure the content is stacked vertically */
+  justify-content: space-between; /* Distribute space evenly */
 }
 
 .image {
   width: 100%;
-  height: auto; /* Ensure the height adjusts based on the aspect ratio */
-  object-fit: contain; /* Ensure the image fits within the container without being cropped */
+  height: auto;
+  object-fit: contain;
 }
 
 .title {
@@ -48,7 +51,8 @@
 .body {
   font-size: 1em;
   color: #333;
-  padding: 0 20px 20px 20px; /* Add padding to the body text */
+  padding: 0 20px 20px 20px;
+  flex-grow: 1; /* Allow the body text to grow and take available space */
 }
 
 .card:hover {
@@ -59,3 +63,4 @@
   transform: scale(0.9);
   opacity: 0.6;
 }
+
