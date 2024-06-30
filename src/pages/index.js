@@ -22,7 +22,7 @@ function HomePage({ carouselImages, profileImages }) {
       title: 'Volunteer',
       body: 'Make a difference in young lives by volunteering at Pa’s Place. Join us in fostering a nurturing environment where every contribution counts towards creating memorable experiences and inspiring personal growth.',
       image: profileImages[1],
-      link: '/volunteer',
+      link: '/donate',
     },
     {
       title: 'Reach Out',

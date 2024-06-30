@@ -1,0 +1,29 @@
+/* src/components/howToVolunteer.module.css */
+
+.armySubtle {
+    background-color: #324a32; /* Adjust this color to match the described army creamy orangey green subtle pastel */
+  }
+
+  
+  .boldItalicShadow {
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  
+  .volunteerIcons {
+    display: flex;
+    justify-content: center; /* Adjust alignment as needed */
+    margin-top: 2rem;
+  }
+  
+  .volunteerIcon {
+    width: 36px; /* Adjust the size of icons */
+    height: 36px;
+    margin: 0 5px; /* Adjust spacing between icons */
+  }
+  
+  .iconGlow {
+    filter: drop-shadow(0 0 4px white); /* Add white glow effect */
+  }
+  

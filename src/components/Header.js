@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link'; // Import Link from next/link
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import styles from './header.module.css';
 
 function Header() {
@@ -7,6 +8,8 @@ function Header() {
   const [shadow, setShadow] = useState(false);
   const [selectedLink, setSelectedLink] = useState('home');
   let scrollTimeout;
+
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +29,27 @@ function Header() {
       clearTimeout(scrollTimeout);
     };
   }, []);
+
+  useEffect(() => {
+    const path = router.pathname;
+    switch (path) {
+      case '/aboutUs':
+        setSelectedLink('about');
+        break;
+      case '/donate':
+        setSelectedLink('donate');
+        break;
+      case '/volunteer':
+        setSelectedLink('volunteer');
+        break;
+      case '/reach-out':
+        setSelectedLink('reach-out');
+        break;
+      default:
+        setSelectedLink('home');
+        break;
+    }
+  }, [router.pathname]);
 
   const handleLinkClick = (link) => {
     setSelectedLink(link);
@@ -54,13 +78,10 @@ function Header() {
           <Link href="/aboutUs" className={`${styles.navLink} ${selectedLink === 'about' ? styles.selected : ''} mx-4`} onClick={() => handleLinkClick('about')}>
             About
           </Link>
-          <Link href="/pages/donate" className={`${styles.navLink} ${selectedLink === 'donate' ? styles.selected : ''} mx-4`} onClick={() => handleLinkClick('donate')}>
-            Donate
+          <Link href="/donate" className={`${styles.navLink} ${selectedLink === 'donate' ? styles.selected : ''} mx-4`} onClick={() => handleLinkClick('donate')}>
+            Donate & Volunteer
           </Link>
-          <Link href="/pages/volunteer" className={`${styles.navLink} ${selectedLink === 'contact' ? styles.selected : ''} mx-4`} onClick={() => handleLinkClick('contact')}>
-            Volunteer
-          </Link>
-          <Link href="/pages/contact" className={`${styles.navLink} ${selectedLink === 'contact' ? styles.selected : ''} mx-4`} onClick={() => handleLinkClick('contact')}>
+          <Link href="/reach-out" className={`${styles.navLink} ${selectedLink === 'reach-out' ? styles.selected : ''} mx-4`} onClick={() => handleLinkClick('reach-out')}>
             Reach-Out
           </Link>
         </nav>
