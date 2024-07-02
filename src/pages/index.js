@@ -61,14 +61,24 @@ function HomePage({ carouselImages, profileImages }) {
 }
 
 export async function getStaticProps() {
-  const keyPointsCarouselDirectory = path.join(process.cwd(), 'public/keyPointsCarousel');
-  const imageCardIconsDirectory = path.join(process.cwd(), 'public/imageCardIcons');
+  const keyPointsCarouselDirectory = path.join(
+    process.cwd(),
+    'public/keyPointsCarousel',
+  );
+  const imageCardIconsDirectory = path.join(
+    process.cwd(),
+    'public/imageCardIcons',
+  );
 
   const keyPointsFilenames = fs.readdirSync(keyPointsCarouselDirectory);
   const imageCardIconsFilenames = fs.readdirSync(imageCardIconsDirectory);
 
-  const carouselImages = keyPointsFilenames.map((name) => `/keyPointsCarousel/${name}`);
-  const profileImages = imageCardIconsFilenames.map((name) => `/imageCardIcons/${name}`).slice(0, 3);
+  const carouselImages = keyPointsFilenames.map(
+    (name) => `/keyPointsCarousel/${name}`,
+  );
+  const profileImages = imageCardIconsFilenames
+    .map((name) => `/imageCardIcons/${name}`)
+    .slice(0, 3);
 
   return {
     props: {

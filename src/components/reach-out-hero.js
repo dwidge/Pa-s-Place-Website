@@ -17,11 +17,17 @@ const ReachOutHero = () => {
   }, []);
 
   return (
-    <div className={`relative w-full h-[140vh] bg-cover bg-center ${styles.hero}`}>
-      <div className={`absolute top-[150px] left-10 transform transition-all duration-1000 ${titleVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
+    <div
+      className={`relative w-full h-[140vh] bg-cover bg-center ${styles.hero}`}
+    >
+      <div
+        className={`absolute top-[150px] left-10 transform transition-all duration-1000 ${titleVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}
+      >
         <h1 className="text-6xl font-bold text-black">Reach Out</h1>
       </div>
-      <div className={`absolute bottom-[492px] left-[150px] transition-opacity duration-1000 ${sentimentVisible ? 'opacity-100' : 'opacity-0'}`}>
+      <div
+        className={`absolute bottom-[492px] left-[150px] transition-opacity duration-1000 ${sentimentVisible ? 'opacity-100' : 'opacity-0'}`}
+      >
         <p className="text-xl text-white bg-black bg-opacity-50 p-4 rounded-lg">
           We all need a source of help, joy, and a break altruistically.
         </p>

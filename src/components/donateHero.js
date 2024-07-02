@@ -1,13 +1,14 @@
 // components/DonateHero.jsx
 
 import Image from 'next/image';
+import bgImg from '@/../public/donate/bg.jpg';
 
 const DonateHero = () => {
   return (
     <div className="relative h-screen overflow-hidden">
       <div className="absolute inset-0 w-full">
         <Image
-          src="/donateHero/bg.jpg"
+          src={bgImg}
           alt="Donate Hero Background"
           layout="fill"
           objectFit="cover"

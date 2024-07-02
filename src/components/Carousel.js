@@ -16,7 +16,7 @@ const Carousel = ({ images }) => {
             img.src = src;
             img.onload = resolve;
             img.onerror = reject;
-          })
+          }),
       );
       try {
         await Promise.all(imagePromises);
@@ -29,11 +29,15 @@ const Carousel = ({ images }) => {
   }, [images]);
 
   const handlePrevClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1,
+    );
   };
 
   const handleNextClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1,
+    );
   };
 
   if (!imagesLoaded) {
@@ -47,21 +51,39 @@ const Carousel = ({ images }) => {
         <div className={styles.frameOverlay}></div>
         <div className={styles.frameBackground}></div>
         <div className={styles.carousel}>
-          <button onClick={handlePrevClick} className={styles.arrowButton}>‹</button>
+          <button onClick={handlePrevClick} className={styles.arrowButton}>
+            ‹
+          </button>
           <div className={styles.carouselImages}>
             {images.map((src, index) => (
-              <div key={index} className={`${styles.imageContainer} ${index === currentIndex ? styles.active : ''}`}>
-                <Image src={src} alt={`Image ${index + 1}`} layout="fill" objectFit="contain" />
+              <div
+                key={index}
+                className={`${styles.imageContainer} ${index === currentIndex ? styles.active : ''}`}
+              >
+                <Image
+                  src={src}
+                  alt={`Image ${index + 1}`}
+                  layout="fill"
+                  objectFit="contain"
+                />
               </div>
             ))}
           </div>
-          <button onClick={handleNextClick} className={styles.arrowButton}>›</button>
+          <button onClick={handleNextClick} className={styles.arrowButton}>
+            ›
+          </button>
         </div>
       </div>
       <div className={styles.sidebar}>
         <div className={styles.aboutUs}>
           <h2>About Us</h2>
-          <p>Pa's Place, located in Kelso, Pennington, offers a safe, nurturing environment for youth. Enjoy comfortable dormitories, recreational spaces, and the beautiful Nkomba Beach. We prioritize safety and provide enriching activities for personal growth and community building.</p>
+          <p>
+            Pa's Place, located in Kelso, Pennington, offers a safe, nurturing
+            environment for youth. Enjoy comfortable dormitories, recreational
+            spaces, and the beautiful Nkomba Beach. We prioritize safety and
+            provide enriching activities for personal growth and community
+            building.
+          </p>
           <Link href="/aboutUs" legacyBehavior>
             <a className={styles.learnMoreButton}>Learn More</a>
           </Link>

@@ -49,19 +49,27 @@ const ContactUs = () => {
     `;
 
     const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-    const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+    const fragmentShader = createShader(
+      gl,
+      gl.FRAGMENT_SHADER,
+      fragmentShaderSource,
+    );
     const program = createProgram(gl, vertexShader, fragmentShader);
 
-    const positionAttributeLocation = gl.getAttribLocation(program, "a_position");
-    const timeLocation = gl.getUniformLocation(program, "u_time");
-    const brightnessLocation = gl.getUniformLocation(program, "u_brightness");
+    const positionAttributeLocation = gl.getAttribLocation(
+      program,
+      'a_position',
+    );
+    const timeLocation = gl.getUniformLocation(program, 'u_time');
+    const brightnessLocation = gl.getUniformLocation(program, 'u_brightness');
 
     const positionBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
-      -1, -1, 1, -1, -1, 1,
-      -1, 1, 1, -1, 1, 1,
-    ]), gl.STATIC_DRAW);
+    gl.bufferData(
+      gl.ARRAY_BUFFER,
+      new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]),
+      gl.STATIC_DRAW,
+    );
 
     let startTime = Date.now();
     function render() {
@@ -75,7 +83,14 @@ const ContactUs = () => {
 
       gl.enableVertexAttribArray(positionAttributeLocation);
       gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-      gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
+      gl.vertexAttribPointer(
+        positionAttributeLocation,
+        2,
+        gl.FLOAT,
+        false,
+        0,
+        0,
+      );
 
       gl.uniform1f(timeLocation, currentTime);
       gl.uniform1f(brightnessLocation, 0.5); // Adjust brightness here
@@ -94,16 +109,22 @@ const ContactUs = () => {
 
   return (
     <div className={styles.container}>
-      <canvas 
-        ref={canvasRef} 
+      <canvas
+        ref={canvasRef}
         className={styles.backgroundCanvas}
         width={dimensions.width}
         height={dimensions.height}
       />
       <div className={styles.content}>
         <h1>Contact Us</h1>
-        <p><FaEnvelope className={styles.icon} /> Email: <a href="mailto:info@pasplace.co.za">info@pasplace.co.za</a></p>
-        <p><FaPhone className={styles.icon} /> Phone: <a href="tel:+27833097288">Pierre: 083 309 7288</a></p>
+        <p>
+          <FaEnvelope className={styles.icon} /> Email:{' '}
+          <a href="mailto:info@pasplace.co.za">info@pasplace.co.za</a>
+        </p>
+        <p>
+          <FaPhone className={styles.icon} /> Phone:{' '}
+          <a href="tel:+27833097288">Pierre: 083 309 7288</a>
+        </p>
       </div>
     </div>
   );
