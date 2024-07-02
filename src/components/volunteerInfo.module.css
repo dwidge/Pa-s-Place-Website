@@ -1,92 +1,92 @@
 .container {
-    background-color: #f0e6f6; /* Pastel pinkish silver */
-    padding: 1.5rem;
-    border-radius: 0.75rem;
-    text-align: center;
-    width: 100%;
+  background-color: #f0e6f6; /* Pastel pinkish silver */
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  width: 100%;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.boldItalicShadow {
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.volunteerIcons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.volunteerIcon {
+  width: 36px;
+  height: 36px;
+  margin: 10px;
+}
+
+.iconGlow {
+  filter: drop-shadow(0 0 4px white);
+}
+
+.howToVolunteer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.hammer {
+  animation: spin 2s linear infinite;
+  margin-top: 1rem;
+  scale: 1.9;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .header {
-    margin-bottom: 2rem;
+  50% {
+    transform: rotate(60deg);
   }
-  
-  .boldItalicShadow {
-    font-weight: bold;
-    font-style: italic;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  100% {
+    transform: rotate(0deg);
   }
-  
-  .volunteerIcons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 2rem;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
   }
-  
-  .volunteerIcon {
-    width: 36px;
-    height: 36px;
-    margin: 10px;
+  50% {
+    transform: scale(1.2);
   }
-  
-  .iconGlow {
-    filter: drop-shadow(0 0 4px white);
-  }
-  
-  .howToVolunteer {
-    margin-top: 2rem;
-    text-align: center;
-  }
-  
-  .hammer {
-    animation: spin 2s linear infinite;
-    margin-top: 1rem;
-    scale: 1.9;
-  }
-  
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    50% {
-      transform: rotate(60deg);
-    }
-    100% {
-      transform: rotate(0deg);
-    }
-  }
-  
-  @keyframes bounce {
-    0%, 100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.2);
-    }
-  }
-  
-  .bounce1 {
-    animation: bounce 2s ease-in-out infinite;
-    animation-delay: 0s;
-  }
-  
-  .bounce2 {
-    animation: bounce 2s ease-in-out infinite;
-    animation-delay: 0.2s;
-  }
-  
-  .bounce3 {
-    animation: bounce 2s ease-in-out infinite;
-    animation-delay: 0.4s;
-  }
-  
-  .bounce4 {
-    animation: bounce 2s ease-in-out infinite;
-    animation-delay: 0.6s;
-  }
-  
-  .bounce5 {
-    animation: bounce 2s ease-in-out infinite;
-    animation-delay: 0.8s;
-  }
-  
+}
+
+.bounce1 {
+  animation: bounce 2s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.bounce2 {
+  animation: bounce 2s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+.bounce3 {
+  animation: bounce 2s ease-in-out infinite;
+  animation-delay: 0.4s;
+}
+
+.bounce4 {
+  animation: bounce 2s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+.bounce5 {
+  animation: bounce 2s ease-in-out infinite;
+  animation-delay: 0.8s;
+}

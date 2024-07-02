@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './MissionStatement.module.css';
+import missionStatementIcon from '../../public/missionStatement/bg.jpg';
 
 const MissionStatement = () => {
   const canvasRef = useRef(null);
@@ -54,27 +55,42 @@ const MissionStatement = () => {
     `;
 
     const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-    const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+    const fragmentShader = createShader(
+      gl,
+      gl.FRAGMENT_SHADER,
+      fragmentShaderSource,
+    );
     const program = createProgram(gl, vertexShader, fragmentShader);
 
-    const positionAttributeLocation = gl.getAttribLocation(program, "a_position");
-    const imageLocation = gl.getUniformLocation(program, "u_image");
-    const timeLocation = gl.getUniformLocation(program, "u_time");
-    const resolutionLocation = gl.getUniformLocation(program, "u_resolution");
+    const positionAttributeLocation = gl.getAttribLocation(
+      program,
+      'a_position',
+    );
+    const imageLocation = gl.getUniformLocation(program, 'u_image');
+    const timeLocation = gl.getUniformLocation(program, 'u_time');
+    const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
 
     const positionBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
-      -1, -1, 1, -1, -1, 1,
-      -1, 1, 1, -1, 1, 1,
-    ]), gl.STATIC_DRAW);
+    gl.bufferData(
+      gl.ARRAY_BUFFER,
+      new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]),
+      gl.STATIC_DRAW,
+    );
 
     const image = new Image();
-    image.src = '/missionStatement/bg.jpg';
+    image.src = missionStatementIcon.src;
     image.onload = () => {
       const texture = gl.createTexture();
       gl.bindTexture(gl.TEXTURE_2D, texture);
-      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
+      gl.texImage2D(
+        gl.TEXTURE_2D,
+        0,
+        gl.RGBA,
+        gl.RGBA,
+        gl.UNSIGNED_BYTE,
+        image,
+      );
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
@@ -92,7 +108,14 @@ const MissionStatement = () => {
 
         gl.enableVertexAttribArray(positionAttributeLocation);
         gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-        gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
+        gl.vertexAttribPointer(
+          positionAttributeLocation,
+          2,
+          gl.FLOAT,
+          false,
+          0,
+          0,
+        );
 
         gl.uniform1i(imageLocation, 0);
         gl.uniform1f(timeLocation, currentTime);
@@ -113,8 +136,8 @@ const MissionStatement = () => {
 
   return (
     <div className={styles.container}>
-      <canvas 
-        ref={canvasRef} 
+      <canvas
+        ref={canvasRef}
         className={styles.backgroundCanvas}
         width={dimensions.width}
         height={dimensions.height}
@@ -123,7 +146,14 @@ const MissionStatement = () => {
       <div className={styles.content}>
         <div className={styles.missionBox}>
           <h1 className={styles.title}>Our Mission Statement</h1>
-          <p>At Pa’s Place, our mission is to nurture the spirits of young guests by providing a safe, enriching environment that fosters community, personal growth, and unforgettable experiences. Through compassionate care and innovative programs, we aim to inspire and empower youth, granting them solace, inspiration, and a sense of belonging.</p>
+          <p>
+            At Pa’s Place, our mission is to nurture the spirits of young guests
+            by providing a safe, enriching environment that fosters community,
+            personal growth, and unforgettable experiences. Through
+            compassionate care and innovative programs, we aim to inspire and
+            empower youth, granting them solace, inspiration, and a sense of
+            belonging.
+          </p>
         </div>
       </div>
     </div>

@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docker:start": "PUBLIC_URL=/pas-place ./scripts/start.sh lx-library/pas-place-website website 3000:80",
+    "docker:deploy": "PUBLIC_URL=/ ./scripts/deploy.sh lx-library/pas-place-website root@lxlibrary.online"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",

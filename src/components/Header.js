@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import styles from './header.module.css';
+import logoImg from '@/../public/logo.png';
+import Image from 'next/image';
 
 function Header() {
   const [shrinkLogo, setShrinkLogo] = useState(false);
@@ -56,32 +58,71 @@ function Header() {
   };
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-shadow duration-300 ${shrinkLogo && shadow ? 'shadow-md' : 'shadow-none'}`}>
-      <div className={`${styles.container} mx-auto px-4 py-6 bg-transparent flex items-center justify-between`}>
-        <div className="flex items-center transition-all duration-300" style={{ height: shrinkLogo ? '105px' : '125px' }}>
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-shadow duration-300 ${
+        shrinkLogo && shadow ? 'shadow-md' : 'shadow-none'
+      }`}
+    >
+      <div
+        className={`${styles.container} mx-auto px-4 py-6 bg-transparent flex items-center justify-between`}
+      >
+        <div
+          className="flex items-center transition-all duration-300"
+          style={{ height: shrinkLogo ? '105px' : '125px' }}
+        >
           <Link href="/" className="flex items-center">
-            <img
-              src="/logo.png"
+            <Image
+              src={logoImg}
               alt="Logo"
               className="transition-all duration-300"
               style={{ height: shrinkLogo ? '105px' : '125px' }}
             />
-            <h1 className={`${styles.logoText} font-bold text-white transition-all duration-300 ${shrinkLogo ? 'text-xl' : 'text-2xl'}`}>
+            <h1
+              className={`${
+                styles.logoText
+              } font-bold text-white transition-all duration-300 ${
+                shrinkLogo ? 'text-xl' : 'text-2xl'
+              }`}
+            >
               Pa's Place
             </h1>
           </Link>
         </div>
         <nav className="flex items-center">
-          <Link href="/" className={`${styles.navLink} ${selectedLink === 'home' ? styles.selected : ''} mx-4`} onClick={() => handleLinkClick('home')}>
+          <Link
+            href="/"
+            className={`${styles.navLink} ${
+              selectedLink === 'home' ? styles.selected : ''
+            } mx-4`}
+            onClick={() => handleLinkClick('home')}
+          >
             Home
           </Link>
-          <Link href="/aboutUs" className={`${styles.navLink} ${selectedLink === 'about' ? styles.selected : ''} mx-4`} onClick={() => handleLinkClick('about')}>
+          <Link
+            href="/aboutUs"
+            className={`${styles.navLink} ${
+              selectedLink === 'about' ? styles.selected : ''
+            } mx-4`}
+            onClick={() => handleLinkClick('about')}
+          >
             About
           </Link>
-          <Link href="/donate" className={`${styles.navLink} ${selectedLink === 'donate' ? styles.selected : ''} mx-4`} onClick={() => handleLinkClick('donate')}>
+          <Link
+            href="/donate"
+            className={`${styles.navLink} ${
+              selectedLink === 'donate' ? styles.selected : ''
+            } mx-4`}
+            onClick={() => handleLinkClick('donate')}
+          >
             Donate & Volunteer
           </Link>
-          <Link href="/reach-out" className={`${styles.navLink} ${selectedLink === 'reach-out' ? styles.selected : ''} mx-4`} onClick={() => handleLinkClick('reach-out')}>
+          <Link
+            href="/reach-out"
+            className={`${styles.navLink} ${
+              selectedLink === 'reach-out' ? styles.selected : ''
+            } mx-4`}
+            onClick={() => handleLinkClick('reach-out')}
+          >
             Reach-Out
           </Link>
         </nav>

@@ -1,4 +1,4 @@
 /* src/components/reach-out-hero.module.css */
 .hero {
-    background-image: url('/reach-out/bg.png');
-  }
+  background-image: url('../../public/reach-out/bg.png');
+}

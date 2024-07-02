@@ -6,7 +6,8 @@
 
 /* Glow animations for icons */
 @keyframes glow {
-  0%, 100% {
+  0%,
+  100% {
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
   }
   50% {
@@ -62,32 +63,60 @@
 }
 
 @keyframes glowRed {
-  0% { text-shadow: 0 0 5px rgba(255, 0, 0, 0.5); }
-  50% { text-shadow: 0 0 20px rgba(255, 0, 0, 1); }
-  100% { text-shadow: 0 0 5px rgba(255, 0, 0, 0); }
+  0% {
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 0, 0, 1);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0);
+  }
 }
 
 @keyframes glowGold {
-  0% { text-shadow: 0 0 5px rgba(218, 165, 32, 0.5); }
-  50% { text-shadow: 0 0 20px rgba(218, 165, 32, 1); }
-  100% { text-shadow: 0 0 5px rgba(218, 165, 32, 0); }
+  0% {
+    text-shadow: 0 0 5px rgba(218, 165, 32, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(218, 165, 32, 1);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(218, 165, 32, 0);
+  }
 }
 
 @keyframes glowGreen {
-  0% { text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); }
-  50% { text-shadow: 0 0 20px rgba(0, 255, 0, 1); }
-  100% { text-shadow: 0 0 5px rgba(0, 255, 0, 0); }
+  0% {
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 255, 0, 1);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0);
+  }
 }
 
 @keyframes glowBlue {
-  0% { text-shadow: 0 0 5px rgba(0, 0, 255, 0.5); }
-  50% { text-shadow: 0 0 20px rgba(0, 0, 255, 1); }
-  100% { text-shadow: 0 0 5px rgba(0, 0, 255, 0); }
+  0% {
+    text-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 0, 255, 1);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(0, 0, 255, 0);
+  }
 }
 
 @keyframes combineText {
-  from { flex-wrap: wrap; }
-  to { flex-wrap: nowrap; }
+  from {
+    flex-wrap: wrap;
+  }
+  to {
+    flex-wrap: nowrap;
+  }
 }
 
 .hero-content .text-part {
@@ -96,19 +125,27 @@
 }
 
 .hero-content .text-part:nth-child(1) {
-  animation: glowRed 1s ease forwards 0.5s, fadeIn 1s ease forwards 0.5s;
+  animation:
+    glowRed 1s ease forwards 0.5s,
+    fadeIn 1s ease forwards 0.5s;
 }
 
 .hero-content .text-part:nth-child(2) {
-  animation: glowGold 1s ease forwards 2s, fadeIn 1s ease forwards 2s;
+  animation:
+    glowGold 1s ease forwards 2s,
+    fadeIn 1s ease forwards 2s;
 }
 
 .hero-content .text-part:nth-child(3) {
-  animation: glowGreen 1s ease forwards 3.5s, fadeIn 1s ease forwards 3.5s;
+  animation:
+    glowGreen 1s ease forwards 3.5s,
+    fadeIn 1s ease forwards 3.5s;
 }
 
 .hero-content .text-part:nth-child(4) {
-  animation: glowBlue 1s ease forwards 5s, fadeIn 1s ease forwards 5s;
+  animation:
+    glowBlue 1s ease forwards 5s,
+    fadeIn 1s ease forwards 5s;
 }
 
 .hero-content p {
@@ -116,86 +153,95 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* src/components/ScrollingQuotes.css */
 
 .scrolling-quotes {
-    width: 100%;
-    overflow: hidden;
-    background-color: black;
-    padding: 10px 0;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-  }
-  
-  .quote-container {
-    display: inline-flex;
-    animation: scroll 80s linear infinite;
-    white-space: nowrap;
-  }
-  
-  .quote {
-    display: inline-block;
-    padding: 0 20px;
-    font-size: 1.2em;
-    color: whitesmoke;
-    text-shadow:
-      -0.5px -0.5px 0 #ddd,
-      -1px -1px 0 #ccc,
-      0.5px 0.5px 0 #333,
-      1px 1px 0 #222;
-  }
-  
-  @keyframes scroll {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-  
-  .scrolling-quotes:hover .quote-container {
-    animation-play-state: paused;
-  }
-  
-  @keyframes glow {
-    0% {
-      text-shadow: 0 0 5px rgba(218, 165, 32, 0.5);
-    }
-    50% {
-      text-shadow: 0 0 30px rgba(218, 165, 32, 0.8);
-    }
-    100% {
-      text-shadow: 0 0 10px rgba(218, 165, 32, 0.6);
-    }
-  }
-  
-  .fade-overlay {
-    position: relative;
-  }
-  
-  .fade-overlay::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, black, transparent);
-    pointer-events: none; /* Ensure the overlay doesn't interfere with clicking on the component below */
-  }
+  width: 100%;
+  overflow: hidden;
+  background-color: black;
+  padding: 10px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
 
-  .bg-footer-bg {
-    background-image: url('/footer/bg.jpg'); /* Path to your background image */
+.quote-container {
+  display: inline-flex;
+  animation: scroll 80s linear infinite;
+  white-space: nowrap;
+}
+
+.quote {
+  display: inline-block;
+  padding: 0 20px;
+  font-size: 1.2em;
+  color: whitesmoke;
+  text-shadow:
+    -0.5px -0.5px 0 #ddd,
+    -1px -1px 0 #ccc,
+    0.5px 0.5px 0 #333,
+    1px 1px 0 #222;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.scrolling-quotes:hover .quote-container {
+  animation-play-state: paused;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px rgba(218, 165, 32, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(218, 165, 32, 0.8);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(218, 165, 32, 0.6);
+  }
+}
+
+.fade-overlay {
+  position: relative;
+}
+
+.fade-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, black, transparent);
+  pointer-events: none; /* Ensure the overlay doesn't interfere with clicking on the component below */
+}
+
+.bg-footer-bg {
+  background-image: url('../../public/footer/bg.png'); /* Path to your background image */
 }
 
 .bg-navy-silver {
-    background-color: rgba(31, 41, 55, 0.7); /* Adjust the color and opacity as needed */
+  background-color: rgba(
+    31,
+    41,
+    55,
+    0.7
+  ); /* Adjust the color and opacity as needed */
 }

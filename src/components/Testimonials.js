@@ -5,40 +5,43 @@ const testimonials = [
   {
     name: 'John Doe',
     title: 'CEO, Company X',
-    text: 'Lorem ipsum dolor sit <b>amet</b>, consectetur adipiscing <i>elit</i>, sed do eiusmod tempor incididunt ut <span class="highlight">labore et dolore magna aliqua</span>.'
+    text: 'Lorem ipsum dolor sit <b>amet</b>, consectetur adipiscing <i>elit</i>, sed do eiusmod tempor incididunt ut <span class="highlight">labore et dolore magna aliqua</span>.',
   },
   {
     name: 'John Doe',
     title: 'CEO, Company X',
-    text: 'Lorem ipsum dolor sit <b>amet</b>, consectetur adipiscing <i>elit</i>, sed do eiusmod tempor incididunt ut <span class="highlight">labore et dolore magna aliqua</span>.'
+    text: 'Lorem ipsum dolor sit <b>amet</b>, consectetur adipiscing <i>elit</i>, sed do eiusmod tempor incididunt ut <span class="highlight">labore et dolore magna aliqua</span>.',
   },
   {
     name: 'John Doe',
     title: 'CEO, Company X',
-    text: 'Lorem ipsum dolor sit <b>amet</b>, consectetur adipiscing <i>elit</i>, sed do eiusmod tempor incididunt ut <span class="highlight">labore et dolore magna aliqua</span>.'
+    text: 'Lorem ipsum dolor sit <b>amet</b>, consectetur adipiscing <i>elit</i>, sed do eiusmod tempor incididunt ut <span class="highlight">labore et dolore magna aliqua</span>.',
   },
   {
     name: 'John Doe',
     title: 'CEO, Company X',
-    text: 'Lorem ipsum dolor sit <b>amet</b>, consectetur adipiscing <i>elit</i>, sed do eiusmod tempor incididunt ut <span class="highlight">labore et dolore magna aliqua</span>.'
+    text: 'Lorem ipsum dolor sit <b>amet</b>, consectetur adipiscing <i>elit</i>, sed do eiusmod tempor incididunt ut <span class="highlight">labore et dolore magna aliqua</span>.',
   },
   {
     name: 'John Doe',
     title: 'CEO, Company X',
-    text: 'Lorem ipsum dolor sit <b>amet</b>, consectetur adipiscing <i>elit</i>, sed do eiusmod tempor incididunt ut <span class="highlight">labore et dolore magna aliqua</span>.'
+    text: 'Lorem ipsum dolor sit <b>amet</b>, consectetur adipiscing <i>elit</i>, sed do eiusmod tempor incididunt ut <span class="highlight">labore et dolore magna aliqua</span>.',
   },
   {
     name: 'John Doe',
     title: 'CEO, Company X',
-    text: 'Lorem ipsum dolor sit <b>amet</b>, consectetur adipiscing <i>elit</i>, sed do eiusmod tempor incididunt ut <span class="highlight">labore et dolore magna aliqua</span>.'
+    text: 'Lorem ipsum dolor sit <b>amet</b>, consectetur adipiscing <i>elit</i>, sed do eiusmod tempor incididunt ut <span class="highlight">labore et dolore magna aliqua</span>.',
   },
 ];
 
 const wrapKeywords = (text, keywords) => {
   let wrappedText = text;
-  keywords.forEach(keyword => {
+  keywords.forEach((keyword) => {
     const regex = new RegExp(`(${keyword})`, 'gi');
-    wrappedText = wrappedText.replace(regex, `<span class="${styles.highlight}">$1</span>`);
+    wrappedText = wrappedText.replace(
+      regex,
+      `<span class="${styles.highlight}">$1</span>`,
+    );
   });
   return wrappedText;
 };
@@ -54,10 +57,18 @@ const Testimonials = () => {
         <div className={`${styles.testimonialsWrapper}`}>
           <div className={`${styles.testimonialsContainer}`}>
             {testimonials.map((testimonial, index) => (
-              <div key={index} className={`${styles.card} bg-white p-6 m-4 rounded-lg shadow-lg flex-none`}>
+              <div
+                key={index}
+                className={`${styles.card} bg-white p-6 m-4 rounded-lg shadow-lg flex-none`}
+              >
                 <h3 className="text-xl font-semibold">{testimonial.name}</h3>
                 <h4 className="text-sm text-gray-600">{testimonial.title}</h4>
-                <p className="text-gray-800 mt-4" dangerouslySetInnerHTML={{ __html: wrapKeywords(testimonial.text, keywords) }}></p>
+                <p
+                  className="text-gray-800 mt-4"
+                  dangerouslySetInnerHTML={{
+                    __html: wrapKeywords(testimonial.text, keywords),
+                  }}
+                ></p>
               </div>
             ))}
           </div>

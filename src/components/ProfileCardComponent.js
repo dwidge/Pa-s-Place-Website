@@ -9,7 +9,7 @@ const ProfileCardComponent = ({ profiles }) => {
     const cardElements = document.querySelectorAll(`.${styles.card}`);
     let maxHeight = 0;
 
-    cardElements.forEach(card => {
+    cardElements.forEach((card) => {
       const cardHeight = card.offsetHeight;
       if (cardHeight > maxHeight) {
         maxHeight = cardHeight;
@@ -25,7 +25,11 @@ const ProfileCardComponent = ({ profiles }) => {
         {profiles.map((profile, index) => (
           <Link href={profile.link} key={index} passHref>
             <div className={styles.card} style={{ height: cardHeight }}>
-              <img src={profile.image} alt={profile.title} className={styles.image} />
+              <img
+                src={profile.image}
+                alt={profile.title}
+                className={styles.image}
+              />
               <h2 className={styles.title}>{profile.title}</h2>
               <p className={styles.body}>{profile.body}</p>
             </div>

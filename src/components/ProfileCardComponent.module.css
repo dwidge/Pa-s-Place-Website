@@ -8,7 +8,7 @@
 }
 
 .board {
-  background-image: url('/profileCards/bg.jpg');
+  background-image: url('../../public/profileCards/bg.jpg');
   background-size: cover;
   background-position: center;
   padding: 40px;
@@ -30,7 +30,9 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 300px;
   text-align: center;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
   transform-origin: center center;
   display: flex;
   flex-direction: column; /* Ensure the content is stacked vertically */
@@ -63,4 +65,3 @@
   transform: scale(0.9);
   opacity: 0.6;
 }
-
